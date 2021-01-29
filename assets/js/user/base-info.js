@@ -41,6 +41,9 @@ $(function() {
     // 重置功能
     $('#reset-btn').click(function(e) {
         e.preventDefault()
+
+        // 重新渲染用户信息
+        initUserInfo()
     })
 
 })

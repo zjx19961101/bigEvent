@@ -44,7 +44,10 @@ $(function() {
     // 5. 点击确定, 上传图片到服务器
     $('#save-btn').click(function() {
         // 5.1 获取裁剪后图片
-        const dataUrl = $image.cropper('getCroppedCanvas').toDataURL('image/png')
+        const dataUrl = $image.cropper('getCroppedCanvas', {
+            width: 100,
+            height: 100
+        }).toDataURL('image/jpeg')
         console.log(dataUrl)
 
         // 5.2 手动构建查询参数 

@@ -102,4 +102,29 @@ $(function() {
         })
 
     })
+
+    // 点击删除按钮，删除当前表单
+    $(document).on('click', '.del-btn', function() {
+
+        // 获取自定义属性的值
+        const id = $(this).data('id')
+
+
+        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
+
+            // 发送请求，删除当前的分类数据
+            axios.get(`/my/article/deletecate/${id}`).then(res => {
+                console.log(res);
+                if (res.status !== 0) {
+                    return layer.msg('删除失败!')
+                }
+
+                layer.msg('删除成功!')
+
+                // 更新外层分类表和数据，重新调用方法渲染
+                getCateList()
+            })
+            layer.close(index);
+        });
+    })
 })

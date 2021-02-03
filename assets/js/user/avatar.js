@@ -37,8 +37,6 @@ $(function() {
 
         // 4.3 替换裁剪区的图片
         $image.cropper('replace', imgUrl)
-
-
     })
 
     // 5. 点击确定, 上传图片到服务器

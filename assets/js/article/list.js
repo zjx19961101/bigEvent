@@ -43,6 +43,10 @@ $(function() {
                 return layer.msg('获取失败!')
             }
 
+            template.defaults.imports.dataFormat = function(data) {
+                return moment(data).format('YYYY/MM/DD HH:mm:ss')
+            }
+
             // 3.2 使用模板引擎来渲染 
             const htmlStr = template('tpl', res)
                 // console.log(htmlStr)
@@ -134,4 +138,9 @@ $(function() {
         })
     })
 
+    // 7.点击编辑按钮，跳转文章编辑页
+    $(document).on('click', '.edit-btn', function() {
+        const id = $(this).data('id')
+        location.href = `./edit.html?id=${id}`
+    })
 })
